@@ -4,15 +4,15 @@ import { motion } from "framer-motion";
 interface MarkdownInputProps {
   value: string;
   onChange: (value: string) => void;
+  autoFocus?: boolean;
 }
 
-export function MarkdownInput({ value, onChange }: MarkdownInputProps) {
+export function MarkdownInput({ value, onChange, autoFocus = true }: MarkdownInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    // Auto-focus on mount
-    textareaRef.current?.focus();
-  }, []);
+    if (autoFocus) textareaRef.current?.focus();
+  }, [autoFocus]);
 
   const wordCount = value.trim()
     ? value.trim().split(/\s+/).length

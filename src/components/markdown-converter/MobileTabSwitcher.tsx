@@ -1,9 +1,16 @@
 interface MobileTabSwitcherProps {
+  leftLabel: string;
+  rightLabel: string;
   activeTab: "input" | "preview";
   onTabChange: (tab: "input" | "preview") => void;
 }
 
-export function MobileTabSwitcher({ activeTab, onTabChange }: MobileTabSwitcherProps) {
+export function MobileTabSwitcher({
+  leftLabel,
+  rightLabel,
+  activeTab,
+  onTabChange,
+}: MobileTabSwitcherProps) {
   return (
     <div className="flex bg-secondary/50 rounded-lg p-1 md:hidden">
       <button
@@ -14,7 +21,7 @@ export function MobileTabSwitcher({ activeTab, onTabChange }: MobileTabSwitcherP
             : "text-muted-foreground hover:text-foreground"
         }`}
       >
-        Input
+        {leftLabel}
       </button>
       <button
         onClick={() => onTabChange("preview")}
@@ -24,7 +31,7 @@ export function MobileTabSwitcher({ activeTab, onTabChange }: MobileTabSwitcherP
             : "text-muted-foreground hover:text-foreground"
         }`}
       >
-        Preview
+        {rightLabel}
       </button>
     </div>
   );

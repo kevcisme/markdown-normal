@@ -27,7 +27,7 @@ export function RichTextPreview({ markdown }: RichTextPreviewProps) {
       <div className="flex-1 overflow-auto px-6 py-5">
         {html ? (
           <div
-            className="preview-content prose prose-invert max-w-none"
+            className="preview-content prose prose-neutral max-w-none"
             dangerouslySetInnerHTML={{ __html: html }}
           />
         ) : (
